@@ -4,7 +4,7 @@
     <% @posts.each do |post| %>
     <div class="col-lg-8">
       <h1>
-        <%= post.title %>
+        <%= link_to post.title, post %>
       </h1>
       <div class="control">
         <%= link_to 'Show', post %>
@@ -15,7 +15,7 @@
       <p>
         <span class="glyphicon glyphicon-time"></span>
         Опубликовано
-        <%= Date.strptime(post.created_at.to_s,"%Y-%m-%d %H:%M:%S %Z").strftime("%B %e в %l:%M")%>
+        <%= l post.created_at, :format => :short%>
       </p>
       <hr>
       <p class="lead">
@@ -29,9 +29,9 @@
         <% end %>
       </div>
     </div>
-    <% end %>
 
-    <%= render 'sidebar' %>
+    <%= render 'sidebar' if post == @posts.first %>
+    <% end %>
 
   </div>
 </div>

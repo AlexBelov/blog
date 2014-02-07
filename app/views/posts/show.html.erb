@@ -1,14 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="container">
+  <div class="row">
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+    <div class="col-lg-8">
+      <h1>
+        <%= @post.title %>
+      </h1>
+      <div class="control">
+        <%= link_to 'Show', @post %>
+        <%= link_to 'Edit', edit_post_path(@post) %>
+        <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Вы на 100% в этом уверены?' } %>
+      </div>
+      <hr>
+      <p>
+        <span class="glyphicon glyphicon-time"></span>
+        Опубликовано
+        <%= l @post.created_at, :format => :short%>
+      </p>
+      <hr>
+      <p class="lead">
+        <%= @post.content.html_safe %>
+      </p>
+      <hr>
+      <div class="tags">
+        <h5>Метки:</h5>
+        <% @post.tags.split(',').each do |tag| %>
+          <p class="tag"><%= tag %></a>
+        <% end %>
+      </div>
+      <%= render 'disqus' %>
+    </div>
+
+    <%= render 'sidebar' %>
+
+  </div>
+</div>
+
+
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
