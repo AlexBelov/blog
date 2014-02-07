@@ -1,29 +1,35 @@
-<h1>Listing posts</h1>
+<div class="container">
+  <div class="row">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="col-lg-8">
+      <h1>
+        <%= post.title %>
+      </h1>
+      <div class="control">
+        <%= link_to 'Show', post %>
+        <%= link_to 'Edit', edit_post_path(post) %>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Вы на 100% в этом уверены?' } %>
+      </div>
+      <p class="lead">by <a href="index.php">Start Bootstrap</a>
+      </p>
+      <hr>
+      <p>
+        <span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM
+      </p>
+      <hr>
+      <p class="lead">
+        <%= post.content.html_safe %>
+      </p>
+
+      <hr>
+      comments
+    </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+    <%= render 'sidebar' %>
 
-<%= link_to 'New Post', new_post_path %>
+  </div>
+</div>
+
+<%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
