@@ -13,7 +13,9 @@
       </div>
       <hr>
       <p>
-        <span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM
+        <span class="glyphicon glyphicon-time"></span>
+        Опубликовано
+        <%= Date.strptime(post.created_at.to_s,"%Y-%m-%d %H:%M:%S %Z").strftime("%B %e в %l:%M")%>
       </p>
       <hr>
       <p class="lead">
@@ -21,6 +23,7 @@
       </p>
       <hr>
       <div class="tags">
+        <h5>Метки:</h5>
         <% post.tags.split(',').each do |tag| %>
           <p class="tag"><%= tag %></a>
         <% end %>
