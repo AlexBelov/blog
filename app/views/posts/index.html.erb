@@ -11,8 +11,6 @@
         <%= link_to 'Edit', edit_post_path(post) %>
         <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Вы на 100% в этом уверены?' } %>
       </div>
-      <p class="lead">by <a href="index.php">Start Bootstrap</a>
-      </p>
       <hr>
       <p>
         <span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM
@@ -21,9 +19,12 @@
       <p class="lead">
         <%= post.content.html_safe %>
       </p>
-
       <hr>
-      comments
+      <div class="tags">
+        <% post.tags.split(',').each do |tag| %>
+          <p class="tag"><%= tag %></a>
+        <% end %>
+      </div>
     </div>
     <% end %>
 
@@ -31,5 +32,3 @@
 
   </div>
 </div>
-
-<%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>

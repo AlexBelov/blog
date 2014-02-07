@@ -1,3 +1,23 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tag {
+  display: inline-block;
+  margin: 0 10px 10px 0;
+  line-height: 22px;
+  padding: 0 10px;
+  color: #333333;
+  font-size: 10px;
+  font-family: Verdana,"Segoe UI",Arial,sans-serif;
+  background: #E0E0E0;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.new_post {
+	margin-top: 8px;
+}
