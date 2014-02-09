@@ -57,4 +57,5 @@ Blog::Application.routes.draw do
   #   end
 
   root 'posts#index'
+  post '/posts/upload_image', to: 'posts#upload_image'
 end

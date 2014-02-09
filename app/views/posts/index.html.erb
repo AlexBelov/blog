@@ -15,7 +15,7 @@
       <p>
         <span class="glyphicon glyphicon-time"></span>
         Опубликовано
-        <%= l post.created_at, :format => :short%>
+        <%= Russian.strftime(post.created_at, '%d %B %Y')%>
       </p>
       <hr>
       <p class="lead">

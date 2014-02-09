@@ -48,3 +48,4 @@ end
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.1.0'
+gem 'russian', '~> 0.6.0'
