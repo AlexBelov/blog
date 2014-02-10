@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
   <div class="row">
 
@@ -7,11 +5,13 @@
       <h1>
         <%= @post.title %>
       </h1>
+      <% if can? :manage, @post %>
       <div class="control">
         <%= link_to 'Show', @post %>
         <%= link_to 'Edit', edit_post_path(@post) %>
         <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Вы на 100% в этом уверены?' } %>
       </div>
+      <% end %>
       <hr>
       <p>
         <span class="glyphicon glyphicon-time"></span>
