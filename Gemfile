@@ -45,16 +45,9 @@ end
 
 # My gems
 
-gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.1.0'
 gem 'russian', '~> 0.6.0'
 gem 'devise'
 gem 'cancan'
 
-group :production, :staging do
-  gem "pg"
-end
-
-group :development, :test do
-  gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
-end
+gem "pg"
