@@ -61,6 +61,24 @@ class PostsController < ApplicationController
     end
   end
 
+  def upload_image
+     @func_num = params["CKEditorFuncNum"]
+     @ck_editor = params["CKEditor"]
+     if params.include?(:upload)
+       data = params.delete(:upload)
+       name =  data.original_filename
+       directory = "public/images"
+       # create the file path
+       path = File.join(directory, name)
+       # write the file
+       File.open(path, "wb") { |f| f.write(data.read) }
+
+       #@image = Image.create({:data => data}) if data.present?
+       @image_url = "/images/#{name}"
+     end
+     render :layout => false
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -71,22 +89,4 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :content, :tags)
     end
-
-    def upload_image
-       @func_num = params["CKEditorFuncNum"]
-       @ck_editor = params["CKEditor"]
-       if params.include?(:upload)
-         data = params.delete(:upload)
-         name =  data.original_filename
-         directory = "public/images"
-         # create the file path
-         path = File.join(directory, name)
-         # write the file
-         File.open(path, "wb") { |f| f.write(data.read) }
-
-         #@image = Image.create({:data => data}) if data.present?
-         @image_url = "/images/#{name}"
-       end
-       render :layout => false
-     end
 end
